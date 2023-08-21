@@ -20,25 +20,26 @@ jobs:
 
       - name: Fork repository
         id: fork
-        uses: repo-sync/github-fork@v2
-        with:
-          target_repo: pfichtner/bundesliga-tabelle
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TOKEN="${{ secrets.GITHUB_TOKEN }}"
+          API_URL="https://api.github.com/repos/<username>/<target-repo>/forks"
+          RESPONSE=$(curl -X POST -s -H "Authorization: token $TOKEN" $API_URL)
+          FORK_URL=$(echo "$RESPONSE" | jq -r '.clone_url')
+          echo "::set-output name=fork_url::$FORK_URL"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check out forked repository
         uses: actions/checkout@v2
         with:
-          repository: ${{ steps.fork.outputs.fork_fullname }}
+          repository: ${{ steps.fork.outputs.fork_url }}
 
       - name: Create and push branch
-        id: create_branch
         run: |
           git checkout -b feature-branch
           git add pacts/BundesligaFrontend-BundesligaBackend.json
           git commit -m "Update pacts/BundesligaFrontend-BundesligaBackend.json"
           git push origin feature-branch
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Open PR
         uses: peter-evans/create-pull-request@v3
@@ -50,3 +51,4 @@ jobs:
             This PR contains the changes from the original repository.
           base: main  # Change this to the appropriate base branch
           labels: auto-generated
+
