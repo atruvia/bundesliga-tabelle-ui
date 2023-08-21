@@ -57,7 +57,7 @@ describe('BundesligaTableService', () => {
     }]);
   });
 
-  it('should map only three icons if only 3 games were played', ()=> {
+  it('should fill up right if less than 5 games were played, any char not SUN will be ignored', ()=> {
     const testDataFromBackend = [
       {
         "platz": 1,
@@ -71,7 +71,7 @@ describe('BundesligaTableService', () => {
         "siege": 6,
         "unentschieden": 7,
         "niederlagen": 8,
-        "letzte5": "SUN"
+        "letzte5": "SUN-"
       }
     ];
 
@@ -91,6 +91,8 @@ describe('BundesligaTableService', () => {
         "../../assets/sieg.svg",
         "../../assets/unentschieden.svg",
         "../../assets/niederlage.svg",
+        "../../assets/nicht-gespielt.svg",
+        "../../assets/nicht-gespielt.svg",
       ]
     }]);
   });
