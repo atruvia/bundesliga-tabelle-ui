@@ -1,0 +1,52 @@
+name: Fork and PR provider
+
+on:
+  push:
+    paths:
+      - 'pacts/BundesligaFrontend-BundesligaBackend.json'
+
+jobs:
+  fork_and_pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Fork repository
+        id: fork
+        uses: repo-sync/github-fork@v2
+        with:
+          target_repo: pfichtner/bundesliga-tabelle
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check out forked repository
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ steps.fork.outputs.fork_fullname }}
+
+      - name: Create and push branch
+        id: create_branch
+        run: |
+          git checkout -b feature-branch
+          git add pacts/BundesligaFrontend-BundesligaBackend.json
+          git commit -m "Update pacts/BundesligaFrontend-BundesligaBackend.json"
+          git push origin feature-branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Open PR
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: feature-branch
+          title: "Changes from original repository"
+          body: |
+            This PR contains the changes from the original repository.
+          base: main  # Change this to the appropriate base branch
+          labels: auto-generated
