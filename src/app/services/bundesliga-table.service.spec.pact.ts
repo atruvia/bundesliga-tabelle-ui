@@ -55,7 +55,7 @@ describe('BundesligaTabelleUIService', () => {
             "niederlagen": 1,
             "letzte5": term({
               generate: 'NUSxx',
-              matcher: 'NUS|NUS.{2}'
+              matcher: 'NUS|^NUS[^NUS]{2}'
             })
           },
           {
