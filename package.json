@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "jest",
     "test:pact": "jest --config ./jest.config.pact.js",
-    "test:cypress": "cypress run --component"
+    "test:cypress": "cypress run --component",
+    "test:ci": "npm test && npm run test:pact && npm run test:cypress"
   },
   "jest": {
     "preset": "jest-preset-angular",
