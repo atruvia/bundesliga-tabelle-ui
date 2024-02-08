@@ -22,7 +22,7 @@ jobs:
         id: fork
         run: |
           TOKEN="${{ secrets.GITHUB_TOKEN }}"
-          API_URL="https://api.github.com/repos/<username>/<target-repo>/forks"
+          API_URL="https://api.github.com/repos/pfichtner/bundesliga-tabelle/forks"
           RESPONSE=$(curl -X POST -s -H "Authorization: token $TOKEN" $API_URL)
           FORK_URL=$(echo "$RESPONSE" | jq -r '.clone_url')
           echo "::set-output name=fork_url::$FORK_URL"
