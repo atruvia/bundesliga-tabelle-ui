@@ -1,8 +1,6 @@
 import {Interaction, Pact} from "@pact-foundation/pact";
 import {BundesligaTableService} from "./bundesliga-table.service";
 import {TestBed} from "@angular/core/testing";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {Team} from "../models/team.ui.model";
 import {HttpClientModule} from "@angular/common/http";
 import {integer, like, string, term} from "@pact-foundation/pact/src/dsl/matchers";
 
@@ -102,7 +100,7 @@ describe('BundesligaTabelleUIService', () => {
       }));
     service.getTableFromServer("bl1", "2023", provider.mockService.baseUrl).subscribe(table => {
       expect(table.length).toBe(4);
-      expect(table[0].letzte5).toEqual(['../../assets/niederlage.svg', '../../assets/unentschieden.svg', '../../assets/sieg.svg']);
+      expect(table[0].letzte5).toEqual(['../../assets/niederlage.svg', '../../assets/unentschieden.svg', '../../assets/sieg.svg', '../../assets/nicht-gespielt.svg', '../../assets/nicht-gespielt.svg']);
       done();
     });
   });
