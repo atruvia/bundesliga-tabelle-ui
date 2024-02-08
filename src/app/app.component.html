@@ -30,7 +30,7 @@
     </mat-progress-spinner>
   </div>
 </ng-container>
-<div class="table-container" *ngIf="!loading">
+<div class="table-container" *ngIf="!loading && !error">
   <table class="bundesliga-table">
     <tr class="table-header">
       <th id="team" scope="col">Verein</th>
@@ -83,4 +83,7 @@
       </td>
     </tr>
   </table>
+</div>
+<div *ngIf="error" class="error">
+  <span data-cy="error">Fehler beim Laden der Tabelle</span>
 </div>
