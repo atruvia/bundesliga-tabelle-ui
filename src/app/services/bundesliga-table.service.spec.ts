@@ -71,7 +71,7 @@ describe('BundesligaTableService', () => {
         "siege": 6,
         "unentschieden": 7,
         "niederlagen": 8,
-        "letzte5": "SUN-"
+        "letzte5": "SUN-X"
       }
     ];
 
