@@ -26,15 +26,12 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    - run: npm run test:pact
 
-    - name: Open PR
-      uses: peter-evans/create-pull-request@v3
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        add-paths: pacts/*
-        branch: feature-branch
-        title: "PACT changed"
-        body: |
-          This PR contains changes inside the pacts directory.
-        base: main
-        labels: auto-generated
+    - name: Check if pacts are uptodate.
+      run: |
+        if [[ $(git status pacts/ --porcelain) ]]; then
+          echo "pacts in the repository are not uptodate."
+          exit 1
+        fi
+
