@@ -13,6 +13,7 @@ export class AppComponent  {
   selectedLiga = 'bl1';
   selectedSeason = '2023'
   loading = false;
+  error: boolean;
   constructor(private tableService: BundesligaTableService) {
     this.updateTable();
   }
@@ -22,6 +23,9 @@ export class AppComponent  {
     this.tableService.getTableFromServer(this.selectedLiga, this.selectedSeason).subscribe(result => {
       this.table = result
       this.loading = false;
+    }, () => {
+      this.loading = false;
+      this.error = true;
     });
   }
 }
