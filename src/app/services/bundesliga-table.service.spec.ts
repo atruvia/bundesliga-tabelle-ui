@@ -20,33 +20,33 @@ describe('BundesligaTableService', () => {
   it('should map backend model to frontend model', ()=> {
     const testDataFromBackend = [
       {
-        "platz": 1,
+        "platz": 12,
         "wappen": "wappen",
         "team": "Team",
-        "spiele": 2,
-        "punkte": 3,
-        "tore": 4,
-        "gegentore": 5,
-        "tordifferenz": -1,
-        "siege": 6,
-        "unentschieden": 7,
-        "niederlagen": 8,
+        "spiele": 23,
+        "punkte": 34,
+        "tore": 45,
+        "gegentore": 56,
+        "tordifferenz": 67,
+        "siege": 78,
+        "unentschieden": 89,
+        "niederlagen": 90,
         "letzte5": "SNNNN"
       }
     ];
 
     expect(service.transformToUIModel(testDataFromBackend)).toEqual([{
-      "platz": 1,
+      "platz": 12,
       "wappen": "wappen",
       "team": "Team",
-      "spiele": 2,
-      "punkte": 3,
-      "tore": 4,
-      "gegentore": 5,
-      "tordifferenz": -1,
-      "siege": 6,
-      "unentschieden": 7,
-      "niederlagen": 8,
+      "spiele": 23,
+      "punkte": 34,
+      "tore": 45,
+      "gegentore": 56,
+      "tordifferenz": 67,
+      "siege": 78,
+      "unentschieden": 89,
+      "niederlagen": 90,
       "letzte5": [
         "../../assets/sieg.svg",
         "../../assets/niederlage.svg",
@@ -57,36 +57,36 @@ describe('BundesligaTableService', () => {
     }]);
   });
 
-  it('should fill up right if less than 5 games were played, any char not SUN will be ignored', ()=> {
+  it('should fill up right if less than 5 games were played', ()=> {
     const testDataFromBackend = [
       {
-        "platz": 1,
+        "platz": 12,
         "wappen": "wappen",
         "team": "Team",
-        "spiele": 2,
-        "punkte": 3,
-        "tore": 4,
-        "gegentore": 5,
-        "tordifferenz": -1,
-        "siege": 6,
-        "unentschieden": 7,
-        "niederlagen": 8,
-        "letzte5": "SUN-X"
+        "spiele": 23,
+        "punkte": 34,
+        "tore": 45,
+        "gegentore": 56,
+        "tordifferenz": 67,
+        "siege": 78,
+        "unentschieden": 89,
+        "niederlagen": 90,
+        "letzte5": "SUN"
       }
     ];
 
     expect(service.transformToUIModel(testDataFromBackend)).toEqual([{
-      "platz": 1,
+      "platz": 12,
       "wappen": "wappen",
       "team": "Team",
-      "spiele": 2,
-      "punkte": 3,
-      "tore": 4,
-      "gegentore": 5,
-      "tordifferenz": -1,
-      "siege": 6,
-      "unentschieden": 7,
-      "niederlagen": 8,
+      "spiele": 23,
+      "punkte": 34,
+      "tore": 45,
+      "gegentore": 56,
+      "tordifferenz": 67,
+      "siege": 78,
+      "unentschieden": 89,
+      "niederlagen": 90,
       "letzte5": [
         "../../assets/sieg.svg",
         "../../assets/unentschieden.svg",
@@ -96,4 +96,46 @@ describe('BundesligaTableService', () => {
       ]
     }]);
   });
+
+  it('any char not SUN gets interprted as not played', ()=> {
+    const testDataFromBackend = [
+      {
+        "platz": 12,
+        "wappen": "wappen",
+        "team": "Team",
+        "spiele": 23,
+        "punkte": 34,
+        "tore": 45,
+        "gegentore": 56,
+        "tordifferenz": 67,
+        "siege": 78,
+        "unentschieden": 89,
+        "niederlagen": 90,
+        "letzte5": "SX N-"
+      }
+    ];
+
+    expect(service.transformToUIModel(testDataFromBackend)).toEqual([{
+      "platz": 12,
+      "wappen": "wappen",
+      "team": "Team",
+      "spiele": 23,
+      "punkte": 34,
+      "tore": 45,
+      "gegentore": 56,
+      "tordifferenz": 67,
+      "siege": 78,
+      "unentschieden": 89,
+      "niederlagen": 90,
+      "letzte5": [
+        "../../assets/sieg.svg",
+        "../../assets/nicht-gespielt.svg",
+        "../../assets/nicht-gespielt.svg",
+        "../../assets/niederlage.svg",
+        "../../assets/nicht-gespielt.svg",
+      ]
+    }]);
+  });
+
+
 });
