@@ -42,7 +42,7 @@ describe('BundesligaTabelleUIService', () => {
         body: [
           {
             "platz": integer(12),
-            "team": "any team name",
+            "team": string("any team name"),
             "spiele": integer(23),
             "punkte": integer(34),
             "tore": integer(45),
