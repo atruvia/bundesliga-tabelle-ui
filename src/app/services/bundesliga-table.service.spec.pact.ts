@@ -41,16 +41,16 @@ describe('BundesligaTabelleUIService', () => {
         headers: {'Content-Type': 'application/json'},
         body: [
           {
-            "platz": integer(1),
-            "team": "anyTeamName",
-            "spiele": 3,
-            "punkte": 4,
-            "tore": integer(3),
-            "gegentore": integer(3),
-            "tordifferenz": integer(0),
-            "siege": 1,
-            "unentschieden": 1,
-            "niederlagen": 1,
+            "platz": integer(12),
+            "team": "any team name",
+            "spiele": integer(23),
+            "punkte": integer(34),
+            "tore": integer(45),
+            "gegentore": integer(56),
+            "tordifferenz": integer(67),
+            "siege": integer(78),
+            "unentschieden": integer(89),
+            "niederlagen": integer(90),
             "letzte5": term({
               generate: 'NUSxx',
               matcher: 'NUS|^NUS[^NUS]{2}'
@@ -100,6 +100,16 @@ describe('BundesligaTabelleUIService', () => {
       }));
     service.getTableFromServer("bl1", "2023", provider.mockService.baseUrl).subscribe(table => {
       expect(table.length).toBe(4);
+      expect(table[0].platz).toEqual(12);
+      expect(table[0].team).toEqual("any team name");
+      expect(table[0].spiele).toEqual(23);
+      expect(table[0].punkte).toEqual(34);
+      expect(table[0].tore).toEqual(45);
+      expect(table[0].gegentore).toEqual(56);
+      expect(table[0].tordifferenz).toEqual(67);
+      expect(table[0].siege).toEqual(78);
+      expect(table[0].unentschieden).toEqual(89);
+      expect(table[0].niederlagen).toEqual(90);
       expect(table[0].letzte5).toEqual(['../../assets/niederlage.svg', '../../assets/unentschieden.svg', '../../assets/sieg.svg', '../../assets/nicht-gespielt.svg', '../../assets/nicht-gespielt.svg']);
       done();
     });
