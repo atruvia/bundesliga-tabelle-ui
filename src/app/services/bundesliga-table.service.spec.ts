@@ -76,7 +76,7 @@ describe('BundesligaTableService', () => {
     ]);
   });
 
-  it('any char not SUN gets interpreted as "not played"', ()=> {
+  it('any char not "S" not "U" nor "N" gets interpreted as "not played"', ()=> {
     backendDataMother[0].letzte5 = "SX N-"
 
     expect(service.transformToUIModel(backendDataMother)[0].letzte5).toEqual([
