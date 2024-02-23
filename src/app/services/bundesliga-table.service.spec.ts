@@ -6,6 +6,12 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 describe('BundesligaTableService', () => {
   let service: BundesligaTableService;
 
+  const assetsPath = "../../assets/";
+  const imageSieg = assetsPath + "sieg.svg";
+  const imageNiederlage = assetsPath + "niederlage.svg";
+  const drawImage = assetsPath + "unentschieden.svg";
+  const imageNichtGespielt = assetsPath + "nicht-gespielt.svg";
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule]
@@ -49,11 +55,11 @@ describe('BundesligaTableService', () => {
       "unentschieden": 89,
       "niederlagen": 90,
       "letzte5": [
-        "../../assets/sieg.svg",
-        "../../assets/niederlage.svg",
-        "../../assets/niederlage.svg",
-        "../../assets/unentschieden.svg",
-        "../../assets/niederlage.svg"
+        imageSieg,
+        imageNiederlage,
+        imageNiederlage,
+        drawImage,
+        imageNiederlage
       ]
     }]);
   });
@@ -62,23 +68,23 @@ describe('BundesligaTableService', () => {
     backendDataMother[0].letzte5 = "SUN"
 
     expect(service.transformToUIModel(backendDataMother)[0].letzte5).toEqual([
-        "../../assets/sieg.svg",
-        "../../assets/unentschieden.svg",
-        "../../assets/niederlage.svg",
-        "../../assets/nicht-gespielt.svg",
-        "../../assets/nicht-gespielt.svg",
+        imageSieg,
+        drawImage,
+        imageNiederlage,
+        imageNichtGespielt,
+        imageNichtGespielt,
     ]);
   });
 
-  it('any char not SUN gets interprted as not played', ()=> {
+  it('any char not SUN gets interpreted as "not played"', ()=> {
     backendDataMother[0].letzte5 = "SX N-"
 
     expect(service.transformToUIModel(backendDataMother)[0].letzte5).toEqual([
-        "../../assets/sieg.svg",
-        "../../assets/nicht-gespielt.svg",
-        "../../assets/nicht-gespielt.svg",
-        "../../assets/niederlage.svg",
-        "../../assets/nicht-gespielt.svg",
+        imageSieg,
+        imageNichtGespielt,
+        imageNichtGespielt,
+        imageNiederlage,
+        imageNichtGespielt,
     ]);
   });
 
