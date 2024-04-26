@@ -24,6 +24,7 @@ export class BundesligaTableService {
   }
 
   private transformBackendTeam(teamBackend: TeamBackend): Team {
+    const laufendesSpielString = teamBackend.laufendesSpiel ? `${teamBackend.laufendesSpiel.tore}-${teamBackend.laufendesSpiel.toreGegner}` : null;
     const team: Team = {
       platz: teamBackend.platz,
       wappen: teamBackend.wappen,
@@ -36,7 +37,8 @@ export class BundesligaTableService {
       siege: teamBackend.siege,
       unentschieden: teamBackend.unentschieden,
       niederlagen: teamBackend.niederlagen,
-      letzte5: []
+      letzte5: [],
+      laufendesSpiel: laufendesSpielString
     }
 
     teamBackend.letzte5.padEnd(5, ' ').substring(0, 5).split('').forEach(char => {

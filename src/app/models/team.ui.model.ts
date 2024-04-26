@@ -11,4 +11,5 @@ export interface Team {
   unentschieden: number;
   niederlagen: number;
   letzte5: string[];
+  laufendesSpiel: string;
 }

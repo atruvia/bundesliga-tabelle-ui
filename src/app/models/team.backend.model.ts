@@ -11,4 +11,9 @@ export interface TeamBackend {
   unentschieden: number;
   niederlagen: number;
   letzte5: string;
+  laufendesSpiel: {
+    ergebnis: string;
+    tore: number;
+    toreGegner: number;
+  };
 }
