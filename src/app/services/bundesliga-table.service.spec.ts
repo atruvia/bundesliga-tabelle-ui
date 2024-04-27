@@ -32,7 +32,8 @@ describe('BundesligaTableService', () => {
       "siege": 78,
       "unentschieden": 89,
       "niederlagen": 90,
-      "letzte5": "SNNUN"
+      "letzte5": "SNNUN",
+      "laufendesSpiel": null
     }
   ];
 
@@ -42,6 +43,11 @@ describe('BundesligaTableService', () => {
 
   // mapping the whole model is tested using the pact test
   it.skip('should map backend model to frontend model', ()=> {
+    backendDataMother[0].laufendesSpiel = {
+      "ergebnis": "N",
+      "tore": 0,
+      "toreGegner": 42
+    }
     expect(service.transformToUIModel(backendDataMother)).toEqual([{
       "platz": 12,
       "wappen": "wappen",
@@ -60,7 +66,8 @@ describe('BundesligaTableService', () => {
         imageNiederlage,
         drawImage,
         imageNiederlage
-      ]
+      ],
+      "laufendesSpiel": "0-42"
     }]);
   });
 
