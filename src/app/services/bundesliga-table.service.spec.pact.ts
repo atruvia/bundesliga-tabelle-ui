@@ -127,7 +127,7 @@ describe('BundesligaTabelleUIService', () => {
         body: [
           {
             "team": string("any team name #1"),
-            "tendenz": eachLike(string())
+            "tendenz": eachLike(string()),
             "laufendesSpiel": {
               "ergebnis": term({
                 generate: 'S',
