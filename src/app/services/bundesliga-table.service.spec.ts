@@ -32,7 +32,7 @@ describe('BundesligaTableService', () => {
       "siege": 78,
       "unentschieden": 89,
       "niederlagen": 90,
-      "letzte5": "SNNUN",
+      "tendenz": ["S","N","N","U","N"],
       "laufendesSpiel": null
     }
   ];
@@ -72,7 +72,7 @@ describe('BundesligaTableService', () => {
   });
 
   it('should fill up right if less than 5 games were played', ()=> {
-    backendDataMother[0].letzte5 = "SUN"
+    backendDataMother[0].tendenz = ["S","U","N"]
 
     expect(service.transformToUIModel(backendDataMother)[0].letzte5).toEqual([
         imageSieg,
@@ -84,7 +84,7 @@ describe('BundesligaTableService', () => {
   });
 
   it('any char not "S" not "U" nor "N" gets interpreted as "not played"', ()=> {
-    backendDataMother[0].letzte5 = "SX N-"
+    backendDataMother[0].tendenz = ["S","X"," ","N","-"]
 
     expect(service.transformToUIModel(backendDataMother)[0].letzte5).toEqual([
         imageSieg,

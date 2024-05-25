@@ -41,7 +41,14 @@ export class BundesligaTableService {
       laufendesSpiel: laufendesSpielString
     }
 
-    teamBackend.letzte5.padEnd(5, ' ').substring(0, 5).split('').forEach(char => {
+    if (!teamBackend.tendenz) {
+      teamBackend.tendenz = [];
+    }
+    while (teamBackend.tendenz.length < 5) {
+      teamBackend.tendenz.push(' ');
+    }
+    teamBackend.tendenz.length = 5;
+    teamBackend.tendenz.forEach(char => {
       switch (char) {
         case 'S':
           team.letzte5.push('../../assets/sieg.svg');

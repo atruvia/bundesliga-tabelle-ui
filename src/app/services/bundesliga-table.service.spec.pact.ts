@@ -2,7 +2,7 @@ import {Interaction, Pact} from "@pact-foundation/pact";
 import {BundesligaTableService} from "./bundesliga-table.service";
 import {TestBed} from "@angular/core/testing";
 import {HttpClientModule} from "@angular/common/http";
-import {integer, like, string, term} from "@pact-foundation/pact/src/dsl/matchers";
+import {integer, like, eachLike, string, term} from "@pact-foundation/pact/src/dsl/matchers";
 
 const provider = new Pact({
   dir: './pacts',
@@ -51,10 +51,7 @@ describe('BundesligaTabelleUIService', () => {
             "siege": integer(78),
             "unentschieden": integer(89),
             "niederlagen": integer(90),
-            "letzte5": term({
-              generate: 'NUSxx',
-              matcher: 'NUS|^NUS[^NUS]{2}'
-            })
+            "tendenz": ['N', 'U', 'S']
           },
           {
             "platz": integer(),
@@ -66,8 +63,7 @@ describe('BundesligaTabelleUIService', () => {
             "tordifferenz": integer(),
             "siege": integer(),
             "unentschieden": integer(),
-            "niederlagen": integer(),
-            "letzte5": string()
+            "niederlagen": integer()
           },
           {
             "platz": integer(),
@@ -79,8 +75,7 @@ describe('BundesligaTabelleUIService', () => {
             "tordifferenz": integer(),
             "siege": integer(),
             "unentschieden": integer(),
-            "niederlagen": integer(),
-            "letzte5": string()
+            "niederlagen": integer()
           },
           {
             "platz": integer(),
@@ -92,8 +87,7 @@ describe('BundesligaTabelleUIService', () => {
             "tordifferenz": integer(),
             "siege": integer(),
             "unentschieden": integer(),
-            "niederlagen": integer(),
-            "letzte5": string()
+            "niederlagen": integer()
           },
 
         ]
@@ -130,7 +124,6 @@ describe('BundesligaTabelleUIService', () => {
         body: [
           {
             "team": string("any team name #1"),
-            "letzte5": string(),
             "laufendesSpiel": {
               "ergebnis": term({
                 generate: 'S',
@@ -142,15 +135,12 @@ describe('BundesligaTabelleUIService', () => {
           },
           {
             "team": string(),
-            "letzte5": string()
           },
           {
             "team": string(),
-            "letzte5": string()
           },
           {
             "team": string(),
-            "letzte5": string()
           }
         ]
       }));
