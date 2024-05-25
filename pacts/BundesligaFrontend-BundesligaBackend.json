@@ -40,9 +40,6 @@
             "siege": 13,
             "spiele": 13,
             "team": "iloveorange",
-            "tendenz": [
-              "iloveorange"
-            ],
             "tordifferenz": 13,
             "tore": 13,
             "unentschieden": 13
@@ -55,9 +52,6 @@
             "siege": 13,
             "spiele": 13,
             "team": "iloveorange",
-            "tendenz": [
-              "iloveorange"
-            ],
             "tordifferenz": 13,
             "tore": 13,
             "unentschieden": 13
@@ -70,9 +64,6 @@
             "siege": 13,
             "spiele": 13,
             "team": "iloveorange",
-            "tendenz": [
-              "iloveorange"
-            ],
             "tordifferenz": 13,
             "tore": 13,
             "unentschieden": 13
@@ -136,13 +127,6 @@
           "$.body[1].team": {
             "match": "type"
           },
-          "$.body[1].tendenz": {
-            "match": "type",
-            "min": 1
-          },
-          "$.body[1].tendenz[*]": {
-            "match": "type"
-          },
           "$.body[1].tordifferenz": {
             "match": "type"
           },
@@ -173,13 +157,6 @@
           "$.body[2].team": {
             "match": "type"
           },
-          "$.body[2].tendenz": {
-            "match": "type",
-            "min": 1
-          },
-          "$.body[2].tendenz[*]": {
-            "match": "type"
-          },
           "$.body[2].tordifferenz": {
             "match": "type"
           },
@@ -208,13 +185,6 @@
             "match": "type"
           },
           "$.body[3].team": {
-            "match": "type"
-          },
-          "$.body[3].tendenz": {
-            "match": "type",
-            "min": 1
-          },
-          "$.body[3].tendenz[*]": {
             "match": "type"
           },
           "$.body[3].tordifferenz": {

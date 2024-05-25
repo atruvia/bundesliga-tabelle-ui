@@ -63,8 +63,7 @@ describe('BundesligaTabelleUIService', () => {
             "tordifferenz": integer(),
             "siege": integer(),
             "unentschieden": integer(),
-            "niederlagen": integer(),
-            "tendenz": eachLike(string())
+            "niederlagen": integer()
           },
           {
             "platz": integer(),
@@ -76,8 +75,7 @@ describe('BundesligaTabelleUIService', () => {
             "tordifferenz": integer(),
             "siege": integer(),
             "unentschieden": integer(),
-            "niederlagen": integer(),
-            "tendenz": eachLike(string())
+            "niederlagen": integer()
           },
           {
             "platz": integer(),
@@ -89,8 +87,7 @@ describe('BundesligaTabelleUIService', () => {
             "tordifferenz": integer(),
             "siege": integer(),
             "unentschieden": integer(),
-            "niederlagen": integer(),
-            "tendenz": eachLike(string())
+            "niederlagen": integer()
           },
 
         ]

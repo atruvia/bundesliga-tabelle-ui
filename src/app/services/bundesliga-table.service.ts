@@ -41,6 +41,9 @@ export class BundesligaTableService {
       laufendesSpiel: laufendesSpielString
     }
 
+    if (!teamBackend.tendenz)
+      teamBackend.tendenz = [];
+    }
     while (teamBackend.tendenz.length < 5) {
       teamBackend.tendenz.push(' ');
     }
