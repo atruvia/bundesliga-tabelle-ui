@@ -218,28 +218,16 @@
               "tore": 102,
               "toreGegner": 113
             },
-            "team": "any team name #1",
-            "tendenz": [
-              "iloveorange"
-            ]
+            "team": "any team name #1"
           },
           {
-            "team": "iloveorange",
-            "tendenz": [
-              "iloveorange"
-            ]
+            "team": "iloveorange"
           },
           {
-            "team": "iloveorange",
-            "tendenz": [
-              "iloveorange"
-            ]
+            "team": "iloveorange"
           },
           {
-            "team": "iloveorange",
-            "tendenz": [
-              "iloveorange"
-            ]
+            "team": "iloveorange"
           }
         ],
         "headers": {
@@ -259,41 +247,13 @@
           "$.body[0].team": {
             "match": "type"
           },
-          "$.body[0].tendenz": {
-            "match": "type",
-            "min": 1
-          },
-          "$.body[0].tendenz[*]": {
-            "match": "type"
-          },
           "$.body[1].team": {
-            "match": "type"
-          },
-          "$.body[1].tendenz": {
-            "match": "type",
-            "min": 1
-          },
-          "$.body[1].tendenz[*]": {
             "match": "type"
           },
           "$.body[2].team": {
             "match": "type"
           },
-          "$.body[2].tendenz": {
-            "match": "type",
-            "min": 1
-          },
-          "$.body[2].tendenz[*]": {
-            "match": "type"
-          },
           "$.body[3].team": {
-            "match": "type"
-          },
-          "$.body[3].tendenz": {
-            "match": "type",
-            "min": 1
-          },
-          "$.body[3].tendenz[*]": {
             "match": "type"
           }
         },
