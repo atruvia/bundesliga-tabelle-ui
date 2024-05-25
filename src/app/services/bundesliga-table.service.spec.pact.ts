@@ -51,7 +51,7 @@ describe('BundesligaTabelleUIService', () => {
             "siege": integer(78),
             "unentschieden": integer(89),
             "niederlagen": integer(90),
-            "tendenz": like(['N', 'U', 'S'])
+            "tendenz": ['N', 'U', 'S']
           },
           {
             "platz": integer(),
