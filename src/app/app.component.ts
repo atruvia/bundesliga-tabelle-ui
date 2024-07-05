@@ -11,7 +11,7 @@ export class AppComponent  {
 
   @Input() table: Team[] = [];
   selectedLiga = 'bl1';
-  selectedSeason = '2023'
+  selectedSeason = '2024'
   loading = false;
   error: boolean;
   constructor(private tableService: BundesligaTableService) {
