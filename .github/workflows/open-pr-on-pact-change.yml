@@ -42,7 +42,7 @@ jobs:
           git push origin feature-branch
 
       - name: Open PR
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: feature-branch
