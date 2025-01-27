@@ -5,6 +5,31 @@ updates:
   directory: "/"
   schedule:
     interval: "monthly"
+  ignore:
+    - dependency-name: "@angular/cdk"
+      versions: ["<15.0.0 || >=16.0.0"]
+    - dependency-name: "@angular/cli"
+      versions: ["<15.0.0 || >=16.0.0"]
+    - dependency-name: "@angular/common"
+      versions: ["<15.0.0 || >=16.0.0"]
+    - dependency-name: "@angular/compiler"
+      versions: ["<15.0.0 || >=16.0.0"]
+    - dependency-name: "@angular/core"
+      versions: ["<15.0.0 || >=16.0.0"]
+    - dependency-name: "@angular-devkit/build-angular"
+      versions: ["<15.0.0 || >=16.0.0"]
+    - dependency-name: "@angular/forms"
+      versions: ["<15.0.0 || >=16.0.0"]
+    - dependency-name: "@angular/material"
+      versions: ["<15.0.0 || >=16.0.0"]
+    - dependency-name: "@angular/router"
+      versions: ["<15.0.0 || >=16.0.0"]
+    - dependency-name: "@pact-foundation/pact"
+      versions: ["<11.0.0 || >=12.0.0"]
+    - dependency-name: "zone.js"
+      versions: ["<0.12.0 || >=1.0.0"]
+  allow:
+    - dependency-type: "direct" # Allows security updates for direct dependencies even if ignored
   assignees:
   - tobibechtold
 - package-ecosystem: "github-actions"
