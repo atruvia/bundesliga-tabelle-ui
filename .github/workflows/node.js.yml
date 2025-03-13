@@ -33,7 +33,7 @@ jobs:
     - run: npm run test:ci
 
     - name: Test Report
-      uses: dorny/test-reporter@v1
+      uses: dorny/test-reporter@v2
       if: success() || failure()
       with:
         name: JEST Tests ${{ matrix.node-version }}
