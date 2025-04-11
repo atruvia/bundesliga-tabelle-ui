@@ -115,7 +115,7 @@ describe('BundesligaTabelleUIService', () => {
       .uponReceiving('a request to get the bundesliga standings with runnng game')
       .withRequest({
         method: 'GET',
-        path: '/tabelle/bl1/2023',
+        path: '/tabelle/bl1/2024',
         headers: {Accept: 'application/json'}
       })
       .willRespondWith({
@@ -144,7 +144,7 @@ describe('BundesligaTabelleUIService', () => {
           }
         ]
       }));
-    service.getTableFromServer("bl1", "2023", provider.mockService.baseUrl).subscribe(table => {
+    service.getTableFromServer("bl1", "2024", provider.mockService.baseUrl).subscribe(table => {
       expect(table.length).toBe(4);
       expect(table[0].team).toEqual("any team name #1");
       expect(table[0].laufendesSpiel).toEqual("102-113");
