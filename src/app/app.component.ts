@@ -1,12 +1,28 @@
 import {Component, Input} from '@angular/core';
 import {BundesligaTableService} from "./services/bundesliga-table.service";
 import {Team} from "./models/team.ui.model";
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelect, MatOption, MatSelectModule } from '@angular/material/select';
+import { NgIf, NgFor, NgClass, CommonModule, NgForOf } from '@angular/common';
+import { MatProgressSpinner, MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    standalone: false
+  imports: [
+    NgClass,
+    MatFormField,
+    MatSelect,
+    MatOption,
+    MatToolbar,
+    MatProgressSpinner,
+    NgIf,
+    NgForOf
+  ]
 })
 export class AppComponent  {
 
