@@ -1,3 +1,4 @@
+[![Node.js CI](https://github.com/atruvia/bundesliga-tabelle-ui/actions/workflows/node.js.yml/badge.svg)](https://github.com/atruvia/bundesliga-tabelle-ui/actions/workflows/node.js.yml)
 # BundesligaTabelleUi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.0.
