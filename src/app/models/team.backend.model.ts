@@ -11,7 +11,7 @@ export interface TeamBackend {
   unentschieden: number;
   niederlagen: number;
   tendenz: string[];
-  laufendesSpiel: {
+  laufendesSpiel?: {
     ergebnis: string;
     tore: number;
     toreGegner: number;

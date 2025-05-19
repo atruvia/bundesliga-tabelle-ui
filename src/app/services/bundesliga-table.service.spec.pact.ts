@@ -147,7 +147,10 @@ describe('BundesligaTabelleUIService', () => {
     service.getTableFromServer("bl1", "2024", provider.mockService.baseUrl).subscribe(table => {
       expect(table.length).toBe(4);
       expect(table[0].team).toEqual("any team name #1");
-      expect(table[0].laufendesSpiel).toEqual("102-113");
+      expect(table[0].laufendesSpiel).toEqual({
+        ergebnis: 'S',
+        spielstand: '102-113'
+      });
       done();
     });
   });

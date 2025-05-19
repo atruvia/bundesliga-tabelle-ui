@@ -24,7 +24,7 @@ export class BundesligaTableService {
   }
 
   private transformBackendTeam(teamBackend: TeamBackend): Team {
-    const laufendesSpielString = teamBackend.laufendesSpiel ? `${teamBackend.laufendesSpiel.tore}-${teamBackend.laufendesSpiel.toreGegner}` : null;
+    const laufendesSpielString = teamBackend.laufendesSpiel ? `${teamBackend.laufendesSpiel.tore}-${teamBackend.laufendesSpiel.toreGegner}` : undefined;
     const team: Team = {
       platz: teamBackend.platz,
       wappen: teamBackend.wappen,
@@ -38,7 +38,10 @@ export class BundesligaTableService {
       unentschieden: teamBackend.unentschieden,
       niederlagen: teamBackend.niederlagen,
       letzte5: [],
-      laufendesSpiel: laufendesSpielString
+      laufendesSpiel: {
+        spielstand: laufendesSpielString!,
+        ergebnis: teamBackend.laufendesSpiel?.ergebnis!
+      }
     }
 
     if (!teamBackend.tendenz) {

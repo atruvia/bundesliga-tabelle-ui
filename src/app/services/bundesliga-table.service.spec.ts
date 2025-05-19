@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { BundesligaTableService } from './bundesliga-table.service';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { TeamBackend } from "../models/team.backend.model";
 
 describe('BundesligaTableService', () => {
   let service: BundesligaTableService;
@@ -19,56 +20,26 @@ describe('BundesligaTableService', () => {
     service = TestBed.inject(BundesligaTableService);
   });
 
-  const backendDataMother = [
+  const backendDataMother: TeamBackend[] = [
     {
-      "platz": 12,
-      "wappen": "wappen",
-      "team": "Team",
-      "spiele": 23,
-      "punkte": 34,
-      "tore": 45,
-      "gegentore": 56,
-      "tordifferenz": 67,
-      "siege": 78,
-      "unentschieden": 89,
-      "niederlagen": 90,
-      "tendenz": ["S","N","N","U","N"],
-      "laufendesSpiel": null
+      platz: 12,
+      wappen: "wappen",
+      team: "Team",
+      spiele: 23,
+      punkte: 34,
+      tore: 45,
+      gegentore: 56,
+      tordifferenz: 67,
+      siege: 78,
+      unentschieden: 89,
+      niederlagen: 90,
+      tendenz: ["S","N","N","U","N"],
+      laufendesSpiel: undefined
     }
   ];
 
     it('should be created', () => {
     expect(service).toBeTruthy();
-  });
-
-  // mapping the whole model is tested using the pact test
-  it.skip('should map backend model to frontend model', ()=> {
-    backendDataMother[0].laufendesSpiel = {
-      "ergebnis": "N",
-      "tore": 0,
-      "toreGegner": 42
-    }
-    expect(service.transformToUIModel(backendDataMother)).toEqual([{
-      "platz": 12,
-      "wappen": "wappen",
-      "team": "Team",
-      "spiele": 23,
-      "punkte": 34,
-      "tore": 45,
-      "gegentore": 56,
-      "tordifferenz": 67,
-      "siege": 78,
-      "unentschieden": 89,
-      "niederlagen": 90,
-      "letzte5": [
-        imageSieg,
-        imageNiederlage,
-        imageNiederlage,
-        drawImage,
-        imageNiederlage
-      ],
-      "laufendesSpiel": "0-42"
-    }]);
   });
 
   it('should fill up right if less than 5 games were played', ()=> {

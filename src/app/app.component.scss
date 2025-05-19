@@ -83,7 +83,27 @@ table {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
+}
+
+.verein-container .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 70%;
+  gap: 8px;
+}
+
+.verein-container .left .teamname {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.verein-container .right {
+  margin-right: 8px;
 }
 
 .fw-bold {
@@ -93,4 +113,29 @@ table {
 .letzte-5 {
   display: flex;
   gap: 1px;
+}
+
+.running-game {
+  color: white;
+  padding: 4px 8px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.winning {
+  background-color: green;
+}
+
+.draw {
+  background-color: grey;
+}
+
+.loosing {
+  background-color: red;
+}
+
+@media only screen and (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
 }
