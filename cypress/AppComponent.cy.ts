@@ -4,28 +4,34 @@ import { BundesligaTableService } from "../src/app/services/bundesliga-table.ser
 import { Observable, of, throwError } from "rxjs";
 import { Team } from "../src/app/models/team.ui.model";
 
+const team = {
+  "platz": 12,
+  "wappen": "https://i.imgur.com/jJEsJrj.png",
+  "team": "Ein recht langer Teamname",
+  "spiele": 23,
+  "punkte": 34,
+  "tore": 45,
+  "gegentore": 56,
+  "tordifferenz": 67,
+  "siege": 78,
+  "unentschieden": 89,
+  "niederlagen": 90,
+  "letzte5": [
+    "../../assets/sieg.svg",
+    "../../assets/niederlage.svg",
+    "../../assets/niederlage.svg",
+    "../../assets/niederlage.svg",
+    "../../assets/niederlage.svg"
+  ],
+  laufendesSpiel: {
+    ergebnis: 'S',
+    spielstand: '1-0'
+  }
+};
+
 let tableService = {
   getTableFromServer(liga: string, saison: string): Observable<Team[]> {
-    return of([{
-      "platz": 12,
-      "wappen": "https://i.imgur.com/jJEsJrj.png",
-      "team": "Ein recht langer Teamname",
-      "spiele": 23,
-      "punkte": 34,
-      "tore": 45,
-      "gegentore": 56,
-      "tordifferenz": 67,
-      "siege": 78,
-      "unentschieden": 89,
-      "niederlagen": 90,
-      "letzte5": [
-        "../../assets/sieg.svg",
-        "../../assets/niederlage.svg",
-        "../../assets/niederlage.svg",
-        "../../assets/niederlage.svg",
-        "../../assets/niederlage.svg"
-      ]
-    }]);
+    return of([team]);
   }
 };
 
@@ -47,7 +53,7 @@ describe('AppComponent.cy.ts', () => {
       imports: [HttpClientTestingModule],
       providers: [{provide: BundesligaTableService, useValue: tableService}],
     });
-    cy.get('[data-cy="platz"]').should('have.text', '12.'); // <-- dot gets appended :)
+    cy.get('[data-cy="platz"]').should('have.text', '12');
     cy.get('[data-cy="wappen"]').should('have.attr', 'src', 'https://i.imgur.com/jJEsJrj.png');
     cy.get('[data-cy="teamname"]').should('have.text', 'Ein recht langer Teamname');
     cy.get('[data-cy="spiele"]').should('have.text', '23');
@@ -58,8 +64,40 @@ describe('AppComponent.cy.ts', () => {
     cy.get('[data-cy="siege"]').should('have.text', '78');
     cy.get('[data-cy="unentschieden"]').should('have.text', '89');
     cy.get('[data-cy="niederlagen"]').should('have.text', '90');
+    cy.get('[data-cy="running-game"]').should('have.text', '1-0');
+    cy.get('[data-cy="running-game"]').should('have.css', 'background-color', 'rgb(0, 128, 0)');
     // cy.get('[data-cy="letzte5"]').should('have.text', '');
   });
+
+  it('displays running loosing game', () => {
+    team.laufendesSpiel = {
+      ergebnis: 'N',
+      spielstand: '0-1',
+    }
+
+    cy.mount(AppComponent, {
+      imports: [HttpClientTestingModule],
+      providers: [{provide: BundesligaTableService, useValue: tableService}],
+    });
+
+    cy.get('[data-cy="running-game"]').should('have.text', '0-1');
+    cy.get('[data-cy="running-game"]').should('have.css', 'background-color', 'rgb(255, 0, 0)');
+  });
+
+  it('displays running drawn game', () => {
+    team.laufendesSpiel = {
+      ergebnis: 'U',
+      spielstand: '1-1',
+    }
+
+    cy.mount(AppComponent, {
+      imports: [HttpClientTestingModule],
+      providers: [{provide: BundesligaTableService, useValue: tableService}],
+    });
+
+    cy.get('[data-cy="running-game"]').should('have.text', '1-1');
+    cy.get('[data-cy="running-game"]').should('have.css', 'background-color', 'rgb(128, 128, 128)');
+  })
 
   it('shows error when backend is not available', () => {
     cy.mount(AppComponent, {

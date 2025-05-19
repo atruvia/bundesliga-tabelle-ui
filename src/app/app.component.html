@@ -36,11 +36,11 @@
     <tr class="table-header">
       <th id="team" scope="col">Verein</th>
       <th id="spiele" scope="col">Sp</th>
-      <th id="siege" scope="col">S</th>
-      <th id="unentschieden" scope="col">U</th>
-      <th id="niederlagen" scope="col">N</th>
-      <th id="tore" scope="col">T</th>
-      <th id="gegentore" scope="col">GT</th>
+      <th id="siege" class="hide-on-mobile" scope="col">S</th>
+      <th id="unentschieden" class="hide-on-mobile" scope="col">U</th>
+      <th id="niederlagen" class="hide-on-mobile" scope="col">N</th>
+      <th id="tore" class="hide-on-mobile" scope="col">T</th>
+      <th id="gegentore" class="hide-on-mobile" scope="col">GT</th>
       <th id="tordifferenz" scope="col">TD</th>
       <th id="punkte" scope="col">Pkte</th>
       <th id="letzte5" scope="col">Letzte 5</th>
@@ -48,27 +48,36 @@
     <tr *ngFor="let team of table" class="table-row">
       <td class="verein" headers="team">
         <div class="verein-container">
-          <span class="platz" data-cy="platz">{{team.platz}}.</span>
-          <img [src]="team.wappen" class="wappen" alt="Vereinswappen" data-cy="wappen">
-          <span data-cy="teamname">{{team.team}}</span>
+          <div class="left">
+            <span class="platz" data-cy="platz">{{team.platz}}</span>
+            <img [src]="team.wappen" class="wappen" alt="Vereinswappen" data-cy="wappen">
+            <span data-cy="teamname" class="teamname">{{team.team}}</span>
+          </div>
+          <div class="right">
+            <span *ngIf="team.laufendesSpiel" data-cy="running-game" class="running-game" [ngClass]="{
+            'winning': team.laufendesSpiel.ergebnis === 'S',
+            'draw': team.laufendesSpiel.ergebnis === 'U',
+            'loosing': team.laufendesSpiel.ergebnis === 'N'
+            }">{{team.laufendesSpiel.spielstand}}</span>
+          </div>
         </div>
       </td>
       <td headers="spiele">
         <span data-cy="spiele">{{team.spiele}}</span>
       </td>
-      <td headers="siege">
+      <td headers="siege" class="hide-on-mobile" class="hide-on-mobile">
         <span data-cy="siege">{{team.siege}}</span>
       </td>
-      <td headers="unentschieden">
+      <td headers="unentschieden" class="hide-on-mobile">
         <span data-cy="unentschieden">{{team.unentschieden}}</span>
       </td>
-      <td headers="niederlagen">
+      <td headers="niederlagen" class="hide-on-mobile">
         <span data-cy="niederlagen">{{team.niederlagen}}</span>
       </td>
-      <td headers="tore">
+      <td headers="tore" class="hide-on-mobile">
         <span data-cy="tore">{{team.tore}}</span>
       </td>
-      <td headers="gegentore">
+      <td headers="gegentore" class="hide-on-mobile">
         <span data-cy="gegentore">{{team.gegentore}}</span>
       </td>
       <td headers="tordifferenz">
