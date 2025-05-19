@@ -1,5 +1,5 @@
 const PROXY_CONFIG = {
-  '/tabelle/*': {
+  '/tabelle/**': {
     'target': 'http://localhost:8080',
 //  'target': 'http://be-hostname:8080',
     'secure': false,

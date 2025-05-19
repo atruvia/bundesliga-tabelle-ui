@@ -5,6 +5,16 @@ export default defineConfig({
     devServer: {
       framework: "angular",
       bundler: "webpack",
+      options: {
+        projectConfig: {
+          root: './',
+          sourceRoot: 'src',
+          buildOptions: {
+            outputPath: 'dist/bundesliga-tabelle-ui',
+            /** other options **/
+          }
+        }
+      },
     },
     specPattern: "**/*.cy.ts",
   },

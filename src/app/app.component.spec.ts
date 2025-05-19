@@ -11,10 +11,8 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
       imports: [
+        AppComponent,
         HttpClientTestingModule,
         BrowserAnimationsModule,
         FormsModule,
