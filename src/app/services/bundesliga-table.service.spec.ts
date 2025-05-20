@@ -25,6 +25,7 @@ describe('BundesligaTableService', () => {
       platz: 12,
       wappen: "wappen",
       team: "Team",
+      shortName: "short name",
       spiele: 23,
       punkte: 34,
       tore: 45,

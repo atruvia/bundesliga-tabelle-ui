@@ -2,6 +2,7 @@ export interface Team {
   platz: number;
   wappen: string;
   team: string;
+  shortName: string;
   spiele: number;
   punkte: number;
   tore: number;

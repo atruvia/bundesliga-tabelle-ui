@@ -43,6 +43,7 @@ describe('BundesligaTabelleUIService', () => {
           {
             "platz": integer(12),
             "team": string("any team name"),
+            "shortName": string("short name"),
             "spiele": integer(23),
             "punkte": integer(34),
             "tore": integer(45),
@@ -56,6 +57,7 @@ describe('BundesligaTabelleUIService', () => {
           {
             "platz": integer(),
             "team": string(),
+            "shortName": string(),
             "spiele": integer(),
             "punkte": integer(),
             "tore": integer(),
@@ -68,6 +70,7 @@ describe('BundesligaTabelleUIService', () => {
           {
             "platz": integer(),
             "team": string(),
+            "shortName": string(),
             "spiele": integer(),
             "punkte": integer(),
             "tore": integer(),
@@ -80,6 +83,7 @@ describe('BundesligaTabelleUIService', () => {
           {
             "platz": integer(),
             "team": string(),
+            "shortName": string(),
             "spiele": integer(),
             "punkte": integer(),
             "tore": integer(),
@@ -96,6 +100,7 @@ describe('BundesligaTabelleUIService', () => {
       expect(table.length).toBe(4);
       expect(table[0].platz).toEqual(12);
       expect(table[0].team).toEqual("any team name");
+      expect(table[0].shortName).toEqual("short name");
       expect(table[0].spiele).toEqual(23);
       expect(table[0].punkte).toEqual(34);
       expect(table[0].tore).toEqual(45);

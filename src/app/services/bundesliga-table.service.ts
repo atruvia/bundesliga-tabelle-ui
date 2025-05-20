@@ -29,6 +29,7 @@ export class BundesligaTableService {
       platz: teamBackend.platz,
       wappen: teamBackend.wappen,
       team: teamBackend.team,
+      shortName: teamBackend.shortName,
       spiele: teamBackend.spiele,
       punkte: teamBackend.punkte,
       tore: teamBackend.tore,
