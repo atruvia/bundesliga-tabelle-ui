@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {map, Observable} from "rxjs";
-import {TeamBackend} from "../models/team.backend.model";
-import {Team} from "../models/team.ui.model";
+import { Injectable } from '@angular/core';
+import { map, Observable } from "rxjs";
+import { TeamBackend } from "../models/team.backend.model";
+import { Team } from "../models/team.ui.model";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({

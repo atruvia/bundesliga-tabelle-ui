@@ -1,8 +1,9 @@
-import {AppComponent} from "../src/app/app.component";
+import { AppComponent } from "../src/app/app.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { BundesligaTableService } from "../src/app/services/bundesliga-table.service";
 import { Observable, of, throwError } from "rxjs";
 import { Team } from "../src/app/models/team.ui.model";
+import { TableComponent } from "../src/app/components/table/table.component";
 
 const team = {
   "platz": 12,
@@ -30,21 +31,21 @@ const team = {
 };
 
 let tableService = {
-  getTableFromServer(liga: string, saison: string): Observable<Team[]> {
+  getTableFromServer(): Observable<Team[]> {
     return of([team]);
   }
 };
 
 let errorTableService = {
-  getTableFromServer(liga: string, saison: string): Observable<Team[]> {
-    return throwError('error');
+  getTableFromServer(): Observable<Team[]> {
+    return throwError(() => new Error('error'));
   }
 };
 
 describe('AppComponent.cy.ts', () => {
   it('mounts', () => {
     cy.mount(AppComponent, {
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule, TableComponent]
     });
   });
 
@@ -66,7 +67,6 @@ describe('AppComponent.cy.ts', () => {
     cy.get('[data-cy="niederlagen"]').should('have.text', '90');
     cy.get('[data-cy="running-game"]').should('have.text', '1-0');
     cy.get('[data-cy="running-game"]').should('have.css', 'background-color', 'rgb(0, 128, 0)');
-    // cy.get('[data-cy="letzte5"]').should('have.text', '');
   });
 
   it('displays running loosing game', () => {
