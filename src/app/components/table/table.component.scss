@@ -1,0 +1,120 @@
+* {
+  font-family: Arial;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-header {
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 8px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.table-row {
+  height: 42px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.table-row:hover {
+  background-color: lightgrey;
+}
+
+th:first-child,
+td:first-child {
+  padding-left: 20px;
+}
+
+.wappen {
+  height: 24px;
+  width: 24px;
+}
+
+.platz {
+  width: 24px;
+}
+
+.verein {
+  width: 0;
+  min-width: 180px;
+  max-width: 220px;
+  white-space: nowrap;
+}
+
+.verein-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.verein-container .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 70%;
+  gap: 4px;
+}
+
+.verein-container .left .teamname {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  max-width: 160px;
+}
+
+.verein-container .right {
+  margin-right: 8px;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+.letzte-5 {
+  display: flex;
+  gap: 1px;
+}
+
+.running-game {
+  color: white;
+  padding: 4px 8px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.winning {
+  background-color: green;
+}
+
+.draw {
+  background-color: grey;
+}
+
+.loosing {
+  background-color: red;
+}
+
+.hide-on-mobile {
+  display: table-cell;
+}
+
+@media only screen and (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  .verein-container .teamname {
+    max-width: 60px;
+  }
+
+  .verein {
+    max-width: 140px;
+  }
+}

@@ -1,8 +1,9 @@
-import {AppComponent} from "../src/app/app.component";
+import { AppComponent } from "../src/app/app.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { BundesligaTableService } from "../src/app/services/bundesliga-table.service";
 import { Observable, of, throwError } from "rxjs";
 import { Team } from "../src/app/models/team.ui.model";
+import { TableComponent } from "../src/app/components/table/table.component";
 
 const team = {
   "platz": 12,
@@ -44,7 +45,7 @@ let errorTableService = {
 describe('AppComponent.cy.ts', () => {
   it('mounts', () => {
     cy.mount(AppComponent, {
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule, TableComponent]
     });
   });
 
@@ -53,6 +54,7 @@ describe('AppComponent.cy.ts', () => {
       imports: [HttpClientTestingModule],
       providers: [{provide: BundesligaTableService, useValue: tableService}],
     });
+    cy.viewport("macbook-16");
     cy.get('[data-cy="platz"]').should('have.text', '12');
     cy.get('[data-cy="wappen"]').should('have.attr', 'src', 'https://i.imgur.com/jJEsJrj.png');
     cy.get('[data-cy="teamname"]').should('have.text', 'Ein recht langer Teamname');

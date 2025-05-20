@@ -1,0 +1,96 @@
+<div class="table-responsive">
+  <table mat-table [dataSource]="table || []" class="mat-elevation-z2">
+
+    <!-- Platz -->
+    <ng-container matColumnDef="platz" sticky>
+      <th mat-header-cell *matHeaderCellDef> #</th>
+      <td mat-cell *matCellDef="let team">
+        <span class="platz" data-cy="platz">{{team.platz}}</span>
+      </td>
+    </ng-container>
+
+    <!-- Verein -->
+    <ng-container matColumnDef="verein">
+      <th mat-header-cell *matHeaderCellDef> Verein</th>
+      <td mat-cell *matCellDef="let team">
+        <div class="verein-container">
+          <div class="left">
+            <img [src]="team.wappen" class="wappen" alt="Vereinswappen" data-cy="wappen">
+            <span data-cy="teamname" class="teamname">{{team.team}}</span>
+          </div>
+          <div class="right">
+          <span *ngIf="team.laufendesSpiel" data-cy="running-game" class="running-game" [ngClass]="{
+            'winning': team.laufendesSpiel.ergebnis === 'S',
+            'draw': team.laufendesSpiel.ergebnis === 'U',
+            'loosing': team.laufendesSpiel.ergebnis === 'N'
+          }">{{team.laufendesSpiel.spielstand}}</span>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Spiele -->
+    <ng-container matColumnDef="spiele">
+      <th mat-header-cell *matHeaderCellDef> Sp</th>
+      <td mat-cell *matCellDef="let team" data-cy="spiele">{{team.spiele}}</td>
+    </ng-container>
+
+    <!-- Siege -->
+    <ng-container matColumnDef="siege">
+      <th mat-header-cell *matHeaderCellDef class="hide-on-mobile"> S</th>
+      <td mat-cell *matCellDef="let team" class="hide-on-mobile" data-cy="siege">{{team.siege}}</td>
+    </ng-container>
+
+    <!-- Unentschieden -->
+    <ng-container matColumnDef="unentschieden">
+      <th mat-header-cell *matHeaderCellDef class="hide-on-mobile"> U</th>
+      <td mat-cell *matCellDef="let team" class="hide-on-mobile" data-cy="unentschieden">{{team.unentschieden}}</td>
+    </ng-container>
+
+    <!-- Niederlagen -->
+    <ng-container matColumnDef="niederlagen">
+      <th mat-header-cell *matHeaderCellDef class="hide-on-mobile"> N</th>
+      <td mat-cell *matCellDef="let team" class="hide-on-mobile" data-cy="niederlagen">{{team.niederlagen}}</td>
+    </ng-container>
+
+    <!-- Tore -->
+    <ng-container matColumnDef="tore">
+      <th mat-header-cell *matHeaderCellDef class="hide-on-mobile"> T</th>
+      <td mat-cell *matCellDef="let team" class="hide-on-mobile" data-cy="tore">{{team.tore}}</td>
+    </ng-container>
+
+    <!-- Gegentore -->
+    <ng-container matColumnDef="gegentore">
+      <th mat-header-cell *matHeaderCellDef class="hide-on-mobile"> GT</th>
+      <td mat-cell *matCellDef="let team" class="hide-on-mobile" data-cy="gegentore">{{team.gegentore}}</td>
+    </ng-container>
+
+    <!-- Tordifferenz -->
+    <ng-container matColumnDef="tordifferenz">
+      <th mat-header-cell *matHeaderCellDef> TD</th>
+      <td mat-cell *matCellDef="let team" data-cy="tordifferenz">{{team.tordifferenz}}</td>
+    </ng-container>
+
+    <!-- Punkte -->
+    <ng-container matColumnDef="punkte">
+      <th mat-header-cell *matHeaderCellDef> Pkte</th>
+      <td mat-cell *matCellDef="let team">
+        <span class="fw-bold" data-cy="punkte">{{team.punkte}}</span>
+      </td>
+    </ng-container>
+
+    <!-- Letzte 5 -->
+    <ng-container matColumnDef="letzte5">
+      <th mat-header-cell *matHeaderCellDef> Letzte 5</th>
+      <td mat-cell *matCellDef="let team">
+        <div class="letzte-5">
+          <img *ngFor="let icon of team.letzte5" [src]="icon"/>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Tabellenstruktur -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" class="table-header"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+  </table>
+</div>
