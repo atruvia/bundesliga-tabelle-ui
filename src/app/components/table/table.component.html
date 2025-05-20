@@ -16,7 +16,7 @@
         <div class="verein-container">
           <div class="left">
             <img [src]="team.wappen" class="wappen" alt="Vereinswappen" data-cy="wappen">
-            <span data-cy="teamname" class="teamname">{{team.team}}</span>
+            <span data-cy="teamname" class="teamname">{{isSmallScreen()?.matches ? team.shortName : team.team}}</span>
           </div>
           <div class="right">
           <span *ngIf="team.laufendesSpiel" data-cy="running-game" class="running-game" [ngClass]="{
