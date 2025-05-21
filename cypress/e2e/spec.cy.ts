@@ -1,11 +1,11 @@
 describe('Bundesliga Tabelle', () => {
   beforeEach(() => {
-    cy.intercept('GET', '/tabelle/**', { fixture: 'bl1_2024.json'})
+    cy.intercept('GET', '/tabelle/**', { fixture: 'bl1_2024.json'});
     cy.viewport(1000, 600);
   });
 
   it('shows team names from fixture', () => {
-    cy.visit('/')
+    cy.visit('/');
     cy.get('[data-cy="teamname"]').should('contain', 'FC Bayern München');
   });
 
@@ -23,6 +23,6 @@ describe('Bundesliga Tabelle', () => {
           height: 600
         }
       }
-    })
+    });
   });
 })
