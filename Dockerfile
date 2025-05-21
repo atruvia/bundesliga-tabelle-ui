@@ -18,8 +18,12 @@ RUN npm run build
 
 # Run stage
 FROM nginx:1.28.0-alpine3.21 AS run
-COPY --from=build /app/dist/* /usr/share/nginx/html/
-COPY docker/nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/dist/bundesliga-tabelle-ui/browser/ /usr/share/nginx/html/
+COPY docker/nginx.conf.template /etc/nginx/nginx.conf.template
+
+COPY docker/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["/entrypoint.sh"]
 
