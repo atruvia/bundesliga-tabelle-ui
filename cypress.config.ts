@@ -7,7 +7,9 @@ export default defineConfig({
     'baseUrl': 'http://localhost:4200',
     setupNodeEvents(on, config) {
       return getCompareSnapshotsPlugin(on, config);
-    }
+    },
+    viewportWidth: 1000,
+    viewportHeight: 600,
   },
 
 

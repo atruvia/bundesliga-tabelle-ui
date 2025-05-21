@@ -12,7 +12,7 @@
           "status": "pass",
           "name": "spec.cy.ts-body",
           "percentage": 0,
-          "failureThreshold": 0,
+          "failureThreshold": 0.2,
           "specPath": "cypress/e2e/spec.cy.ts",
           "specFilename": "spec.cy.ts",
           "baselinePath": "cypress-image-diff-screenshots/baseline/spec.cy.ts-body.png",
@@ -22,9 +22,9 @@
       ]
     }
   ],
-  "startedAt": "2025-05-21T01:13:04.649Z",
-  "endedAt": "2025-05-21T01:13:06.128Z",
-  "duration": 1479,
+  "startedAt": "2025-05-21T01:31:48.651Z",
+  "endedAt": "2025-05-21T01:31:51.248Z",
+  "duration": 2597,
   "browserName": "electron",
   "browserVersion": "130.0.6723.137",
   "cypressVersion": "14.4.0"
