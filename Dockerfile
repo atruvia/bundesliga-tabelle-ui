@@ -1,5 +1,5 @@
 # Build stage
-FROM node:16 AS build
+FROM node:22 AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
@@ -17,7 +17,7 @@ RUN npm run build
 # RUN npm run test
 
 # Run stage
-FROM nginx:1.21.3-alpine AS run
+FROM nginx:1.28.0-alpine3.21 AS run
 COPY --from=build /app/dist/* /usr/share/nginx/html/
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
