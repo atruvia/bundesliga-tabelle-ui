@@ -80,11 +80,60 @@
           "options": {
             "buildTarget": "bundesliga-tabelle-ui:build"
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "bundesliga-tabelle-ui:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bundesliga-tabelle-ui:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "bundesliga-tabelle-ui:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "bundesliga-tabelle-ui:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "bundesliga-tabelle-ui:serve",
+            "watch": false,
+            "headless": true
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bundesliga-tabelle-ui:serve:production"
+            }
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": [
+      "@cypress/schematic",
+      "@schematics/angular"
+    ]
   }
 }

@@ -1,10 +1,22 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress'
+import getCompareSnapshotsPlugin from "cypress-image-diff-js/plugin";
 
 export default defineConfig({
+
+  e2e: {
+    'baseUrl': 'http://localhost:4200',
+    setupNodeEvents(on, config) {
+      return getCompareSnapshotsPlugin(on, config);
+    },
+    viewportWidth: 1000,
+    viewportHeight: 600,
+  },
+
+
   component: {
     devServer: {
-      framework: "angular",
-      bundler: "webpack",
+      framework: 'angular',
+      bundler: 'webpack',
       options: {
         projectConfig: {
           root: './',
@@ -16,6 +28,8 @@ export default defineConfig({
         }
       },
     },
-    specPattern: "**/*.cy.ts",
-  },
-});
+
+    specPattern: '**/*.cy.ts'
+  }
+
+})

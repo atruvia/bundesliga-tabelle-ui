@@ -1,0 +1,380 @@
+[
+  {
+    "platz": 1,
+    "wappen": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Logo_FC_Bayern_M%C3%BCnchen_%282002%E2%80%932017%29.svg",
+    "team": "FC Bayern München",
+    "shortName": "Bayern",
+    "spiele": 34,
+    "punkte": 82,
+    "tore": 99,
+    "gegentore": 32,
+    "tordifferenz": 67,
+    "siege": 25,
+    "unentschieden": 7,
+    "niederlagen": 2,
+    "tendenz": [
+      "S",
+      "S",
+      "U",
+      "S",
+      "S"
+    ]
+  },
+  {
+    "platz": 2,
+    "wappen": "https://www.bundesliga-reisefuehrer.de/sites/default/files/B04_Standard_Logo_RGB.png",
+    "team": "Bayer 04 Leverkusen",
+    "shortName": "Leverkusen",
+    "spiele": 34,
+    "punkte": 69,
+    "tore": 72,
+    "gegentore": 43,
+    "tordifferenz": 29,
+    "siege": 19,
+    "unentschieden": 12,
+    "niederlagen": 3,
+    "tendenz": [
+      "U",
+      "N",
+      "U",
+      "S",
+      "U"
+    ]
+  },
+  {
+    "platz": 3,
+    "wappen": "https://i.imgur.com/X8NFkOb.png",
+    "team": "Eintracht Frankfurt",
+    "shortName": "Frankfurt",
+    "spiele": 34,
+    "punkte": 60,
+    "tore": 68,
+    "gegentore": 46,
+    "tordifferenz": 22,
+    "siege": 17,
+    "unentschieden": 9,
+    "niederlagen": 8,
+    "tendenz": [
+      "S",
+      "U",
+      "U",
+      "S",
+      "U"
+    ]
+  },
+  {
+    "platz": 4,
+    "wappen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/560px-Borussia_Dortmund_logo.svg.png",
+    "team": "Borussia Dortmund",
+    "shortName": "Dortmund",
+    "spiele": 34,
+    "punkte": 57,
+    "tore": 71,
+    "gegentore": 51,
+    "tordifferenz": 20,
+    "siege": 17,
+    "unentschieden": 6,
+    "niederlagen": 11,
+    "tendenz": [
+      "S",
+      "S",
+      "S",
+      "S",
+      "S"
+    ]
+  },
+  {
+    "platz": 5,
+    "wappen": "https://i.imgur.com/r3mvi0h.png",
+    "team": "SC Freiburg",
+    "shortName": "Freiburg",
+    "spiele": 34,
+    "punkte": 55,
+    "tore": 49,
+    "gegentore": 53,
+    "tordifferenz": -4,
+    "siege": 16,
+    "unentschieden": 7,
+    "niederlagen": 11,
+    "tendenz": [
+      "N",
+      "S",
+      "U",
+      "S",
+      "S"
+    ]
+  },
+  {
+    "platz": 6,
+    "wappen": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Logo_Mainz_05.svg/1200px-Logo_Mainz_05.svg.png",
+    "team": "1. FSV Mainz 05",
+    "shortName": "Mainz",
+    "spiele": 34,
+    "punkte": 52,
+    "tore": 55,
+    "gegentore": 43,
+    "tordifferenz": 12,
+    "siege": 14,
+    "unentschieden": 10,
+    "niederlagen": 10,
+    "tendenz": [
+      "U",
+      "S",
+      "U",
+      "N",
+      "U"
+    ]
+  },
+  {
+    "platz": 7,
+    "wappen": "https://i.imgur.com/Rpwsjz1.png",
+    "team": "RB Leipzig",
+    "shortName": "Leipzig",
+    "spiele": 34,
+    "punkte": 51,
+    "tore": 53,
+    "gegentore": 48,
+    "tordifferenz": 5,
+    "siege": 13,
+    "unentschieden": 12,
+    "niederlagen": 9,
+    "tendenz": [
+      "N",
+      "U",
+      "U",
+      "N",
+      "U"
+    ]
+  },
+  {
+    "platz": 8,
+    "wappen": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SV-Werder-Bremen-Logo.svg/681px-SV-Werder-Bremen-Logo.svg.png",
+    "team": "SV Werder Bremen",
+    "shortName": "Bremen",
+    "spiele": 34,
+    "punkte": 51,
+    "tore": 54,
+    "gegentore": 57,
+    "tordifferenz": -3,
+    "siege": 14,
+    "unentschieden": 9,
+    "niederlagen": 11,
+    "tendenz": [
+      "S",
+      "U",
+      "U",
+      "U",
+      "S"
+    ]
+  },
+  {
+    "platz": 9,
+    "wappen": "https://i.imgur.com/v0tkpNx.png",
+    "team": "VfB Stuttgart",
+    "shortName": "Stuttgart",
+    "spiele": 34,
+    "punkte": 50,
+    "tore": 64,
+    "gegentore": 53,
+    "tordifferenz": 11,
+    "siege": 14,
+    "unentschieden": 8,
+    "niederlagen": 12,
+    "tendenz": [
+      "S",
+      "S",
+      "S",
+      "N",
+      "U"
+    ]
+  },
+  {
+    "platz": 10,
+    "wappen": "https://i.imgur.com/KSIk0Eu.png",
+    "team": "Borussia Mönchengladbach",
+    "shortName": "Gladbach",
+    "spiele": 34,
+    "punkte": 45,
+    "tore": 55,
+    "gegentore": 57,
+    "tordifferenz": -2,
+    "siege": 13,
+    "unentschieden": 6,
+    "niederlagen": 15,
+    "tendenz": [
+      "N",
+      "N",
+      "U",
+      "N",
+      "N"
+    ]
+  },
+  {
+    "platz": 11,
+    "wappen": "https://i.imgur.com/ucqKV4B.png",
+    "team": "VfL Wolfsburg",
+    "shortName": "Wolfsburg",
+    "spiele": 34,
+    "punkte": 43,
+    "tore": 56,
+    "gegentore": 54,
+    "tordifferenz": 2,
+    "siege": 11,
+    "unentschieden": 10,
+    "niederlagen": 13,
+    "tendenz": [
+      "S",
+      "U",
+      "N",
+      "N",
+      "U"
+    ]
+  },
+  {
+    "platz": 12,
+    "wappen": "https://i.imgur.com/sdE62e2.png",
+    "team": "FC Augsburg",
+    "shortName": "Augsburg",
+    "spiele": 34,
+    "punkte": 43,
+    "tore": 35,
+    "gegentore": 51,
+    "tordifferenz": -16,
+    "siege": 11,
+    "unentschieden": 10,
+    "niederlagen": 13,
+    "tendenz": [
+      "N",
+      "N",
+      "N",
+      "N",
+      "U"
+    ]
+  },
+  {
+    "platz": 13,
+    "wappen": "https://assets.dfb.de/uploads/000/018/232/small_union-Berlin.jpg",
+    "team": "1. FC Union Berlin",
+    "shortName": "Union Berlin",
+    "spiele": 34,
+    "punkte": 40,
+    "tore": 35,
+    "gegentore": 51,
+    "tordifferenz": -16,
+    "siege": 10,
+    "unentschieden": 10,
+    "niederlagen": 14,
+    "tendenz": [
+      "S",
+      "N",
+      "U",
+      "U",
+      "U"
+    ]
+  },
+  {
+    "platz": 14,
+    "wappen": "https://upload.wikimedia.org/wikipedia/de/b/b3/Fc_st_pauli_logo.svg",
+    "team": "FC St. Pauli",
+    "shortName": "St. Pauli",
+    "spiele": 34,
+    "punkte": 32,
+    "tore": 28,
+    "gegentore": 41,
+    "tordifferenz": -13,
+    "siege": 8,
+    "unentschieden": 8,
+    "niederlagen": 18,
+    "tendenz": [
+      "N",
+      "U",
+      "N",
+      "U",
+      "U"
+    ]
+  },
+  {
+    "platz": 15,
+    "wappen": "https://i.imgur.com/gF0PfEl.png",
+    "team": "TSG Hoffenheim",
+    "shortName": "Hoffenheim",
+    "spiele": 34,
+    "punkte": 32,
+    "tore": 46,
+    "gegentore": 68,
+    "tordifferenz": -22,
+    "siege": 7,
+    "unentschieden": 11,
+    "niederlagen": 16,
+    "tendenz": [
+      "N",
+      "U",
+      "U",
+      "N",
+      "N"
+    ]
+  },
+  {
+    "platz": 16,
+    "wappen": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/1._FC_Heidenheim_1846.svg/830px-1._FC_Heidenheim_1846.svg.png",
+    "team": "1. FC Heidenheim 1846",
+    "shortName": "Heidenheim",
+    "spiele": 34,
+    "punkte": 29,
+    "tore": 37,
+    "gegentore": 64,
+    "tordifferenz": -27,
+    "siege": 8,
+    "unentschieden": 5,
+    "niederlagen": 21,
+    "tendenz": [
+      "N",
+      "S",
+      "U",
+      "S",
+      "N"
+    ]
+  },
+  {
+    "platz": 17,
+    "wappen": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Holstein_Kiel_Logo.svg/300px-Holstein_Kiel_Logo.svg.png",
+    "team": "Holstein Kiel",
+    "shortName": "Kiel",
+    "spiele": 34,
+    "punkte": 25,
+    "tore": 49,
+    "gegentore": 80,
+    "tordifferenz": -31,
+    "siege": 6,
+    "unentschieden": 7,
+    "niederlagen": 21,
+    "tendenz": [
+      "N",
+      "N",
+      "S",
+      "S",
+      "U"
+    ]
+  },
+  {
+    "platz": 18,
+    "wappen": "https://i.imgur.com/5jy3Gfr.png",
+    "team": "VfL Bochum",
+    "shortName": "Bochum",
+    "spiele": 34,
+    "punkte": 25,
+    "tore": 33,
+    "gegentore": 67,
+    "tordifferenz": -34,
+    "siege": 6,
+    "unentschieden": 7,
+    "niederlagen": 21,
+    "tendenz": [
+      "S",
+      "N",
+      "U",
+      "U",
+      "N"
+    ]
+  }
+]

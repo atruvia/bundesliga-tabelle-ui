@@ -9,7 +9,10 @@
     "test": "jest",
     "test:pact": "jest --config ./jest.config.pact.js",
     "test:cypress": "cypress run --component",
-    "test:ci": "npm test && npm run test:pact && npm run test:cypress"
+    "test:ci": "npm test && npm run test:pact && npm run test:cypress && npm run test:e2e",
+    "test:e2e": "ng e2e",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "jest": {
     "preset": "jest-preset-angular",
@@ -34,6 +37,7 @@
     "@angular/platform-browser-dynamic": "^19.2.11",
     "@angular/router": "^19.2.11",
     "@pact-foundation/pact": "^11.0.2",
+    "listr2": "^8.3.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.8.1",
     "zone.js": "~0.15.0"
@@ -44,9 +48,11 @@
     "@angular/build": "^19.2.12",
     "@angular/cli": "~19.2.12",
     "@angular/compiler-cli": "^19.2.11",
+    "@cypress/schematic": "^3.0.0",
     "@types/jest": "^29.5.14",
     "bootstrap": "^5.3.6",
-    "cypress": "^14.3.3",
+    "cypress": "latest",
+    "cypress-image-diff-js": "^2.4.0",
     "jest": "^29.7.0",
     "jest-junit": "^16.0.0",
     "jest-preset-angular": "^14.5.4",
