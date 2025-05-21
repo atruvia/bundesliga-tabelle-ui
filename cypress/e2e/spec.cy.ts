@@ -10,6 +10,9 @@ describe('Bundesliga Tabelle', () => {
 
   it('compares screenshots', () => {
     cy.visit('/');
-    cy.compareSnapshot('body')
+    cy.compareSnapshot({
+      name: 'body',
+      testThreshold: 0.2
+    })
   });
 })

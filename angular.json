@@ -117,7 +117,7 @@
           "builder": "@cypress/schematic:cypress",
           "options": {
             "devServerTarget": "bundesliga-tabelle-ui:serve",
-            "watch": true,
+            "watch": false,
             "headless": true
           },
           "configurations": {
