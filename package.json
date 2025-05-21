@@ -9,8 +9,8 @@
     "test": "jest",
     "test:pact": "jest --config ./jest.config.pact.js",
     "test:cypress": "cypress run --component",
-    "test:ci": "npm test && npm run test:pact && npm run test:cypress && npm run e2e",
-    "e2e": "ng e2e",
+    "test:ci": "npm test && npm run test:pact && npm run test:cypress && npm run test:e2e",
+    "test:e2e": "ng e2e",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },
