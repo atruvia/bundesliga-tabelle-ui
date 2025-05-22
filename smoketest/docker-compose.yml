@@ -1,0 +1,21 @@
+services:
+  backend:
+    image: nginx:alpine
+    volumes:
+      - ./nginx-mockserver.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./mockdata:/usr/share/nginx/html:ro
+
+  frontend:
+    image: buli-ui
+    build: ..
+    ports:
+      - "8080:80"
+    environment:
+      - BACKEND_URL=http://backend
+    depends_on:
+      - backend
+
+networks:
+  default:
+    name: buli-network
+
