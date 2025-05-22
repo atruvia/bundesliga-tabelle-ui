@@ -47,5 +47,18 @@ jobs:
           exit 1
         fi
 
-    - name: Run Smoketests
-      run: smoketest/run-smoketests.sh
+    - name: Setup Playwright
+      uses: microsoft/playwright-github-action@v1
+
+    - name: Start stack with Docker Compose
+      run: docker-compose -f smoketest/docker-compose.yml up -d
+      env:
+        COMPOSE_PROJECT_NAME: smoke
+
+    - name: Run Playwright smoke test
+      run: npx playwright test smoketest/smoketest.spec.ts
+
+    - name: Shut down stack
+      if: always()
+      run: docker-compose -f smoketest/docker-compose.yml down
+
