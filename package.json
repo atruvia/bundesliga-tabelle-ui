@@ -17,7 +17,7 @@
     "smoke:up": "docker compose -f smoketest/docker-compose.yml up -d",
     "smoke:down": "docker compose -f smoketest/docker-compose.yml down",
     "smoke:runtest": "npx playwright test smoketest/smoketest.spec.ts",
-    "test:smoketest": "npm run smoke:up && npm run smoke:runtest && npm run smoke:down"
+    "test:smoketest": "npm run smoke:up && npm run smoke:runtest; npm run smoke:down"
   },
   "jest": {
     "preset": "jest-preset-angular",
