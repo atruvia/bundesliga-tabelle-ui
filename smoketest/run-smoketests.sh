@@ -1,7 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-STACK_DIR="smoketest"
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
 FRONTEND_URL="http://localhost:8080"
 TIMEOUT=10
 INTERVAL=1
@@ -13,8 +14,7 @@ cleanup() {
 }
 trap cleanup EXIT
 
-echo "Starting Docker Compose stack in ./$STACK_DIR..."
-cd "$STACK_DIR"
+echo "Starting Docker Compose stack in ./$PWD..."
 docker compose up -d --build
 echo "Docker Compose stack started successfully."
 
