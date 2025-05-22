@@ -22,6 +22,9 @@
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/setup-jest.ts"
+    ],
+    "testPathIgnorePatterns": [
+      "/smoketest/"
     ]
   },
   "private": true,
