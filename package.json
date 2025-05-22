@@ -9,10 +9,15 @@
     "test": "jest",
     "test:pact": "jest --config ./jest.config.pact.js",
     "test:cypress": "cypress run --component",
-    "test:ci": "npm test && npm run test:pact && npm run test:cypress && npm run test:e2e",
+    "test:ci": "npm test && npm run test:pact && npm run test:cypress && npm run test:e2e && npm run test:smoketest",
     "test:e2e": "ng e2e",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+
+    "smoke:up": "docker compose -f smoketest/docker-compose.yml up -d",
+    "smoke:down": "docker compose -f smoketest/docker-compose.yml down",
+    "smoke:runtest": "npx playwright test smoketest/smoketest.spec.ts",
+    "test:smoketest": "npm run smoke:up && npm run smoke:runtest; npm run smoke:down"
   },
   "jest": {
     "preset": "jest-preset-angular",
@@ -22,6 +27,9 @@
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/setup-jest.ts"
+    ],
+    "testPathIgnorePatterns": [
+      "/smoketest/"
     ]
   },
   "private": true,
@@ -49,6 +57,7 @@
     "@angular/cli": "~19.2.12",
     "@angular/compiler-cli": "^19.2.11",
     "@cypress/schematic": "^3.0.0",
+    "@playwright/test": "^1.52.0",
     "@types/jest": "^29.5.14",
     "bootstrap": "^5.3.6",
     "cypress": "latest",
