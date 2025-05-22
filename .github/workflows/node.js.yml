@@ -8,10 +8,13 @@ permissions:
   contents: read
   checks: write
 
-on:
-  push:
+on:     
+  schedule: 
+  # each fifteen day of month
+  - cron: "0 0 15 * *"
+  push: 
   pull_request:
-
+        
 jobs:
   build:
 
