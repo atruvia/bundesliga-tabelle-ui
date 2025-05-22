@@ -47,3 +47,5 @@ jobs:
           exit 1
         fi
 
+    - name: Run Smoketests
+      run: smoketest/run-smoketests.sh
