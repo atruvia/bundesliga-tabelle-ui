@@ -2,8 +2,8 @@ describe('Bundesliga Tabelle', () => {
   beforeEach(() => {
     if (Cypress.env('useMock')) {
       cy.intercept('GET', '/tabelle/**', { fixture: 'bl1_2024.json'});
-      cy.viewport(1000, 600);
     }
+    cy.viewport(1000, 600);
   });
 
   it('shows team names from fixture', () => {

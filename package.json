@@ -15,7 +15,7 @@
     "cypress:run": "cypress run",
     "smoke:up": "docker compose -f smoketest/docker-compose.yml up -d",
     "smoke:down": "docker compose -f smoketest/docker-compose.yml down",
-    "smoke:runtest": "npx playwright test smoketest/smoketest.spec.ts",
+    "smoke:runtest": "cypress run --config baseUrl=http://localhost:8080",
     "test:smoketest": "npm run smoke:up && npm run smoke:runtest; npm run smoke:down"
   },
   "jest": {
