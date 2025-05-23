@@ -118,7 +118,8 @@
           "options": {
             "devServerTarget": "bundesliga-tabelle-ui:serve",
             "watch": false,
-            "headless": true
+            "headless": true,
+            "configFile": "./cypress.config.e2e.ts"
           },
           "configurations": {
             "production": {
