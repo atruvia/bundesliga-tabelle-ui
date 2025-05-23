@@ -13,10 +13,9 @@
     "test:e2e": "ng e2e",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-
     "smoke:up": "docker compose -f smoketest/docker-compose.yml up -d",
     "smoke:down": "docker compose -f smoketest/docker-compose.yml down",
-    "smoke:runtest": "npx playwright test smoketest/smoketest.spec.ts",
+    "smoke:runtest": "cypress run --config baseUrl=http://localhost:8080 --env disableMock=true",
     "test:smoketest": "npm run smoke:up && npm run smoke:runtest; npm run smoke:down"
   },
   "jest": {
@@ -57,7 +56,6 @@
     "@angular/cli": "~19.2.12",
     "@angular/compiler-cli": "^19.2.11",
     "@cypress/schematic": "^3.0.0",
-    "@playwright/test": "^1.52.0",
     "@types/jest": "^29.5.14",
     "bootstrap": "^5.3.6",
     "cypress": "latest",
