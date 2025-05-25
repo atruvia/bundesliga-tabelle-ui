@@ -5,6 +5,10 @@ on:
     paths:
       - 'pacts/BundesligaFrontend-BundesligaBackend.json'
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   fork_and_pr:
     runs-on: ubuntu-latest
