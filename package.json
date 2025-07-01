@@ -57,7 +57,7 @@
     "@angular/compiler-cli": "^19.2.11",
     "@cypress/schematic": "^3.0.0",
     "@types/jest": "^29.5.14",
-    "bootstrap": "^5.3.6",
+    "bootstrap": "^5.3.7",
     "cypress": "latest",
     "cypress-image-diff-js": "^2.4.0",
     "jest": "^29.7.0",
