@@ -27,7 +27,7 @@ import { toObservable, toSignal } from "@angular/core/rxjs-interop";
 export class AppComponent {
 
   selectedLiga = signal('bl1');
-  selectedSeason = signal('2024');
+  selectedSeason = signal('2025');
 
   loading = signal(false);
   error = signal<string | null>(null);
