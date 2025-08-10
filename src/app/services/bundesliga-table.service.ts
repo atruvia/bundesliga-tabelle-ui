@@ -45,9 +45,9 @@ export class BundesligaTableService {
       }
     }
 
-    if (!teamBackend.tendenz) {
-      teamBackend.tendenz = [];
-    }
+    teamBackend.tendenz = teamBackend.tendenz || [];
+    teamBackend.tendenz = teamBackend.tendenz.slice().reverse();
+
     while (teamBackend.tendenz.length < 5) {
       teamBackend.tendenz.push(' ');
     }

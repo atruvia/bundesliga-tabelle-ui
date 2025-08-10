@@ -109,7 +109,7 @@ describe('BundesligaTabelleUIService', () => {
       expect(table[0].siege).toEqual(78);
       expect(table[0].unentschieden).toEqual(89);
       expect(table[0].niederlagen).toEqual(90);
-      expect(table[0].letzte5).toEqual(['../../assets/niederlage.svg', '../../assets/unentschieden.svg', '../../assets/sieg.svg', '../../assets/nicht-gespielt.svg', '../../assets/nicht-gespielt.svg']);
+      expect(table[0].letzte5).toEqual(['../../assets/sieg.svg', '../../assets/unentschieden.svg', '../../assets/niederlage.svg', '../../assets/nicht-gespielt.svg', '../../assets/nicht-gespielt.svg']);
       done();
     });
   });

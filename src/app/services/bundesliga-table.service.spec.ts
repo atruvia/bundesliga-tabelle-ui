@@ -47,9 +47,9 @@ describe('BundesligaTableService', () => {
     backendDataMother[0].tendenz = ["S","U","N"]
 
     expect(service.transformToUIModel(backendDataMother)[0].letzte5).toEqual([
-        imageSieg,
-        drawImage,
         imageNiederlage,
+        drawImage,
+        imageSieg,
         imageNichtGespielt,
         imageNichtGespielt,
     ]);
@@ -59,11 +59,11 @@ describe('BundesligaTableService', () => {
     backendDataMother[0].tendenz = ["S","X"," ","N","-"]
 
     expect(service.transformToUIModel(backendDataMother)[0].letzte5).toEqual([
-        imageSieg,
-        imageNichtGespielt,
         imageNichtGespielt,
         imageNiederlage,
         imageNichtGespielt,
+        imageNichtGespielt,
+        imageSieg,
     ]);
   });
 
