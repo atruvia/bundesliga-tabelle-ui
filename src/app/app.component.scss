@@ -4,6 +4,18 @@
 
 .spacer {
   flex: 1 1 auto;
+  min-width: 20px;
+}
+
+.mat-mdc-icon-button {
+  min-width: 40px;
+  width: 40px;
+}
+
+.mat-mdc-icon-button .mat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .loading {
