@@ -7,6 +7,7 @@ import { MatOption, MatSelect } from '@angular/material/select';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { TableComponent } from "./components/table/table.component";
 import { NgIf } from '@angular/common';
 import { toObservable } from "@angular/core/rxjs-interop";
@@ -24,6 +25,7 @@ import { catchError, finalize, of, switchMap, tap } from "rxjs";
     MatProgressSpinner,
     MatButtonModule,
     MatIconModule,
+    MatTooltipModule,
     NgIf,
     TableComponent
   ]

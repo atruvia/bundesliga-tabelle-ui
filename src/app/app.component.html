@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
   <span>My Football App</span>
   <span class="spacer"></span>
-  <button mat-icon-button (click)="refresh()" data-cy="refresh-button" [disabled]="loading()">
+  <button mat-icon-button (click)="refresh()" data-cy="refresh-button" [disabled]="loading()" matTooltip="Tabelle aktualisieren">
     <mat-icon>refresh</mat-icon>
   </button>
 </mat-toolbar>
