@@ -1,14 +1,16 @@
-import { Component, computed, inject, Signal, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { BundesligaTableService } from "./services/bundesliga-table.service";
 import { Team } from "./models/team.ui.model";
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatFormField } from '@angular/material/form-field';
 import { MatOption, MatSelect } from '@angular/material/select';
-import { NgIf } from '@angular/common';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { TableComponent } from "./components/table/table.component";
+import { NgIf } from '@angular/common';
+import { toObservable } from "@angular/core/rxjs-interop";
 import { catchError, finalize, of, switchMap, tap } from "rxjs";
-import { toObservable, toSignal } from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-root',
@@ -20,6 +22,8 @@ import { toObservable, toSignal } from "@angular/core/rxjs-interop";
     MatOption,
     MatToolbar,
     MatProgressSpinner,
+    MatButtonModule,
+    MatIconModule,
     NgIf,
     TableComponent
   ]
@@ -31,6 +35,7 @@ export class AppComponent {
 
   loading = signal(false);
   error = signal<string | null>(null);
+  table = signal<Team[] | null>(null);
 
   private tableService: BundesligaTableService = inject(BundesligaTableService);
 
@@ -55,5 +60,24 @@ export class AppComponent {
     )
   );
 
-  table: Signal<Team[] | null> = toSignal(this.table$, { initialValue: null });
+  constructor() {
+    this.table$.subscribe(data => {
+      this.table.set(data);
+    });
+  }
+
+  refresh(): void {
+    const { liga, season } = this.params();
+    this.loading.set(true);
+    this.error.set(null);
+    this.tableService.getTableFromServer(liga, season).pipe(
+      catchError(err => {
+        this.error.set('Fehler beim Laden der Tabelle');
+        return of(null);
+      }),
+      finalize(() => this.loading.set(false))
+    ).subscribe(data => {
+      this.table.set(data);
+    });
+  }
 }
