@@ -19,7 +19,7 @@
             <span data-cy="teamname" class="teamname">{{isSmallScreen()?.matches ? team.shortName : team.team}}</span>
           </div>
           <div class="right">
-          <span *ngIf="team.laufendesSpiel" data-cy="running-game" class="running-game" [ngClass]="{
+          <span *ngIf="team.laufendesSpiel" data-cy="running-game" class="running-game" [title]="team.laufendesSpiel.gegner" [ngClass]="{
             'winning': team.laufendesSpiel.ergebnis === 'S',
             'draw': team.laufendesSpiel.ergebnis === 'U',
             'loosing': team.laufendesSpiel.ergebnis === 'N'

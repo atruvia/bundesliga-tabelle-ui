@@ -17,5 +17,6 @@ export interface Team {
 
 export type LaufendesSpiel = {
   ergebnis: string;
+  gegner: string;
   spielstand: string;
 }

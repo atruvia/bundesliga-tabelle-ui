@@ -55,6 +55,21 @@ describe('BundesligaTableService', () => {
     ]);
   });
 
+  it('should map the opposite team of a running game', () => {
+    backendDataMother[0].tendenz = [];
+    backendDataMother[0].laufendesSpiel = {
+      ergebnis: 'S',
+      gegner: 'FC Hansa Rostock',
+      tore: 1,
+      toreGegner: 0
+    };
+
+    const runningGame = service.transformToUIModel(backendDataMother)[0].laufendesSpiel;
+
+    expect(runningGame?.gegner).toBe('FC Hansa Rostock');
+    expect(runningGame?.spielstand).toBe('1-0');
+  });
+
   it('any char not "S" not "U" nor "N" gets interpreted as "not played"', ()=> {
     backendDataMother[0].tendenz = ["S","X"," ","N","-"]
 
