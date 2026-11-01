@@ -27,6 +27,7 @@ const team = {
   ],
   laufendesSpiel: {
     ergebnis: 'S',
+    gegner: 'FC Hansa Rostock',
     spielstand: '1-0'
   }
 };
@@ -79,6 +80,7 @@ describe('AppComponent.cy.ts', () => {
   it('displays running loosing game', () => {
     team.laufendesSpiel = {
       ergebnis: 'N',
+      gegner: 'FC Hansa Rostock',
       spielstand: '0-1',
     }
 
@@ -94,6 +96,7 @@ describe('AppComponent.cy.ts', () => {
   it('displays running drawn game', () => {
     team.laufendesSpiel = {
       ergebnis: 'U',
+      gegner: 'FC Hansa Rostock',
       spielstand: '1-1',
     }
 

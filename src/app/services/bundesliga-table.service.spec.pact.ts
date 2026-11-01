@@ -134,6 +134,7 @@ describe('BundesligaTabelleUIService', () => {
                 generate: 'S',
                 matcher: '[NUS]'
               }),
+              "gegner": string("FC Hansa Rostock"),
               "tore": integer(102),
               "toreGegner": integer(113)
             }
@@ -154,6 +155,7 @@ describe('BundesligaTabelleUIService', () => {
       expect(table[0].team).toEqual("any team name #1");
       expect(table[0].laufendesSpiel).toEqual({
         ergebnis: 'S',
+        gegner: 'FC Hansa Rostock',
         spielstand: '102-113'
       });
       done();

@@ -14,6 +14,7 @@ export interface TeamBackend {
   tendenz: string[];
   laufendesSpiel?: {
     ergebnis: string;
+    gegner: string;
     tore: number;
     toreGegner: number;
   };

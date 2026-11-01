@@ -41,7 +41,8 @@ export class BundesligaTableService {
       letzte5: [],
       laufendesSpiel: {
         spielstand: laufendesSpielString!,
-        ergebnis: teamBackend.laufendesSpiel?.ergebnis!
+        ergebnis: teamBackend.laufendesSpiel?.ergebnis!,
+        gegner: teamBackend.laufendesSpiel?.gegner!
       }
     }
 

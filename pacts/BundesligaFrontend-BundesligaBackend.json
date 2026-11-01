@@ -228,6 +228,7 @@
           {
             "laufendesSpiel": {
               "ergebnis": "S",
+              "gegner": "FC Hansa Rostock",
               "tore": 102,
               "toreGegner": 113
             },
@@ -250,6 +251,9 @@
           "$.body[0].laufendesSpiel.ergebnis": {
             "match": "regex",
             "regex": "[NUS]"
+          },
+          "$.body[0].laufendesSpiel.gegner": {
+            "match": "type"
           },
           "$.body[0].laufendesSpiel.tore": {
             "match": "type"
