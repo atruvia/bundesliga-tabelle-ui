@@ -39,12 +39,12 @@ describe('TableComponent', () => {
       laufendesSpiel: {
         ergebnis: 'S',
         spielstand: '1-0',
-        gegner: 'FC Hansa Rostock'
+        gegner: 'any opponent team name'
       }
     }];
     fixture.detectChanges();
 
     const runningGame = fixture.nativeElement.querySelector('[data-cy="running-game"]');
-    expect(runningGame.getAttribute('title')).toBe('FC Hansa Rostock');
+    expect(runningGame.getAttribute('title')).toBe('any opponent team name');
   });
 });
