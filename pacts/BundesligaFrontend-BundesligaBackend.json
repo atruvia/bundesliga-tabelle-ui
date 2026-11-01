@@ -228,7 +228,7 @@
           {
             "laufendesSpiel": {
               "ergebnis": "S",
-              "gegner": "FC Hansa Rostock",
+              "gegner": "any opponent team name",
               "tore": 102,
               "toreGegner": 113
             },

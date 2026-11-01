@@ -59,14 +59,14 @@ describe('BundesligaTableService', () => {
     backendDataMother[0].tendenz = [];
     backendDataMother[0].laufendesSpiel = {
       ergebnis: 'S',
-      gegner: 'FC Hansa Rostock',
+      gegner: 'any opponent team name',
       tore: 1,
       toreGegner: 0
     };
 
     const runningGame = service.transformToUIModel(backendDataMother)[0].laufendesSpiel;
 
-    expect(runningGame?.gegner).toBe('FC Hansa Rostock');
+    expect(runningGame?.gegner).toBe('any opponent team name');
     expect(runningGame?.spielstand).toBe('1-0');
   });
 
